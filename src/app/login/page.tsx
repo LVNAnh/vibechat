@@ -28,7 +28,7 @@ const StyledImageWrapper = styled.div`
   margin-bottom: 50px;
 `
 const Login = () => {
-  const [signInWithGoogle, _user, _loading, _error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   const signIn = () => {
     signInWithGoogle();

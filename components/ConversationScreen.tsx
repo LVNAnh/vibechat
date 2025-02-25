@@ -83,7 +83,7 @@ const EndOfMessagesForAutoScroll = styled.div`
 
 const ConversationScreen = ({conversation, messages} : {conversation: Conversation; messages: IMessage[]}) => {
     const [newMessage, setNewMessage] = useState('')
-    const [user, _loading, _error] = useAuthState(auth)
+    const [user] = useAuthState(auth)
     const conversationUsers = conversation.users
 
     const { recipientEmail, recipient } = useRecipient(conversationUsers)
@@ -93,7 +93,7 @@ const ConversationScreen = ({conversation, messages} : {conversation: Conversati
 
     const queryGetMessages = conversationId ? generateQueryMessages(conversationId as string) : null;
 
-    const [messagesSnapshot, messagesLoading, __error] = useCollection(queryGetMessages)
+    const [messagesSnapshot, messagesLoading] = useCollection(queryGetMessages)
 
     const showMessages = () => {
         //if front-end is loading messages behind the scene, display messages retrieved from Next SSR (passed down from [id]/page.tsx)

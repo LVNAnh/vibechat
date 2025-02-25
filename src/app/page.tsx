@@ -5,7 +5,7 @@ import { auth } from "../config/firebase";
 import Sidebar from "../../components/Sidebar";
 
 export default function Home() {
-  const [user, loading] = useAuthState(auth);
+  const [loading] = useAuthState(auth);
 
   if (loading) return null; 
 
